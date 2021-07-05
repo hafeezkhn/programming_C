@@ -1,3 +1,4 @@
+//another eg:1.c
 #include<stdio.h>
 #pragma pack(1)
 struct A{

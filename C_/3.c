@@ -1,5 +1,5 @@
 #include <stdio.h>
-
+//addr of local varible 
 
 int check(unsigned int**);
 

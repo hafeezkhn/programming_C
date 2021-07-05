@@ -1,4 +1,5 @@
- #include<stdio.h>
+//casting func_pointer
+#include<stdio.h>
 unsigned short add(void)
 {
         return 0xeeff;

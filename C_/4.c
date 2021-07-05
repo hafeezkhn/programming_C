@@ -1,3 +1,4 @@
+//process block endpointers of each section
 #include<stdio.h>
 int main()
 {

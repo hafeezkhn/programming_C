@@ -1,3 +1,4 @@
+//know the offset of hetroginious collection
 #include<stdio.h>
 #pragma pack(1)
 struct A{
