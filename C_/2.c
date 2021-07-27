@@ -12,7 +12,7 @@ int main()
  void *ptr=&k;
 
  printf("%d\n",*(int*)ptr);
- ptr = (int*)ptr+1;
+ ptr = (int*)ptr+1o;
  printf("%c\n",*(char*)ptr);
  ptr = (char*)ptr+1;
  printf("%d\n",*(int*)ptr);
