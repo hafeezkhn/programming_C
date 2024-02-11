@@ -1,0 +1,82 @@
+
+----------------------------------------------------------------------------------------------
+[ARM Cortex-M Series]
+-developed for microcontroller domain
+-in M-profile there are different versions of the ARM architecture
+	*ARMv6-M
+	*ARMv7E-M -> M3,M4 ->harvard
+	*ARMv8-M
+-32 bit ISA
+-In general M-profile cores are optimized for cost and energy-efficiency
+
+----------------------------------------------------------------------------------------------
+[Cortex M4]
+-The size of processor in terms of bits defines the maximum addressable 
+ range or the maximum address range it can handle. 
+ For example, ARM Cortex-M4 microcontrollers can handle 2^32 = 4GB of memory address space.
+-The 32-bit also means the size of internal registers of the processor. 
+ All internal registers such as general purpose and special function, are of 32-bit.
+-The datapaths, functional units ( ALU) which perform arithmetic (addition, subtraction, 
+ multiplication, etc) and logical operations ( AND, OR, less than, greater than, etc) on data 
+ are also of 32-bit size.
+-Bus interfaces such as memory/data buses are also 32-bit.
+-The Cortex-M microcontrollers are based on the ARMv7 
+ processor and this processor has a set of internal registers known as a register bank.
+ This register bank consists of 16 registers ranging from R0-R16. First 13 registers from R0-12 
+ are general purpose registers and last three from R12-R15 are special function registers. 
+-General Purpose Registers (GPR)
+ General purpose registers are divided into two groups .i.e.lower registers (R0-R7) and higher 
+ registers(R8-R12). 
+ GPR are used to store addresses and data which is currently under process. 
+-Special Function Registers(SFR)
+  >In special function registers, R13 (SP) is a stack pointer and it holds the address of the 
+   top element of the stack.
+  >R14 is a link register LR and it is used to store the return address of the functions.
+  >R15 (PC) is a program counter and it holds the address of the next instruction to be executed. 
+   Program counter value automatically increases by 4 after every instruction execution so that 
+   it points to the next instruction address.
+-Special Registers
+ Other than register bank, the processor also has special registers that contain 
+ the program status such as operational status,system interrupts. These status registers are:
+  >PSR ( Program status register)
+  >PRIMASK
+  >FAULTMASK
+  >BASEPRI
+  >CONTROL
+-Load Store Architecture
+ ARM Cortex-M4 is based on load store architecture. In a load store architecture, whenever a 
+ processor wants to perform operation on data which is stored inside memory, the processor 
+ first loads this data from memory to one of the internal registers of the processor. 
+ After processing,data will be written back to memory only if it is required. 
+-Cortex-M4 Main Components 
+  >Processor core
+  >NVIC (Nested Vector Interrupt Controller)
+  >Debug system
+  >Bus system and bus matrix
+  >Memory
+  >Peripheral
+
+-On the other extreme we can say that Cortex-M4 is basically a cortex-M3 profile with the 
+ integration of a DSP unit in it. The instruction set architecture used in cortex-M4 is Thumb-2
+ which is a mixture of 32 bit ARM instruction set architecture and 16 bit Thumb instruction 
+ set architecture. However, cortex-M4 adds a range of SIMD (single instruction multiple data) 
+ instructions to optimize the use and functioning of digital signal processing.
+
+-Cortex-M4 core achieves 1.25 DMIPS/MHz and 3.42 CoreMark/MHz thread performance
+  DMIPS->Dhrystone MIPS (Million Instructions per Second)
+-Non-maskable interrupt and 1 to 240 physical interrupts with 8 to 256 priority levels
+ Wake-up interrupt controller
+-Integrated WFI and WFE Instructions and Sleep-On-Exit capability, Sleep & Deep Sleep Signals, 
+ Optional Retention Mode with Arm Power Management Kit
+-Optional JTAG and Serial Wire Debug ports. Up to 8 breakpoints and 4 watchpoints
+-Optional Instruction Trace (ETM), Data Trace (DWT), and Instrumentation Trace (ITM)
+-Bus interface 3x AMBA AHB-lite interface (Harvard bus architecture) AMBA ATB interface for CoreSight debug components
+-Thumb/Thumb-2 subset instruction support
+-3-stage pipeline
+-DSP extensions: single-cycle 16/32-bit MAC, Single cycle dual 16-bit MAC, 8/16-bit SIMD arithmetic, Hardware Divide (2-12 Cycles)
+-Optional single precision Floating Point Unit (FPU), IEEE 754-compliant
+-Optional 8 MPU regions with sub-regions and background region
+-Integrated bit-field processing instructions and bus-level bit banding
+----------------------------------------------------------------------------------------------
+
+

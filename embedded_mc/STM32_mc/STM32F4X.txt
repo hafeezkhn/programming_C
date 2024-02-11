@@ -1,0 +1,23 @@
+---STM32F4X------------------------------------------------------------
+Memory map of MCU(microcontroller unit)
+- uses ARM cortex M4,which has system bus width 32bits
+- the processor can produce $G different addr 
+- So,memory map starts from 0x0000_0000 and ends 0xffff_ffff
+- looking at reference manual for STM32 finding section on memory map
+	*what is: 
+	 1.base addr of AHB1 BUS peripheral registers?
+	 2.base addr of GPIOA register?
+	 3.base addr of APB1 peripheral registers?
+	 4.base addr of FLASH memory?
+	 5.base addr of SRAM2?
+	 6.base addr of ADC and RCC register?
+
+MCU Bus interfaces .i.e. from cortex M4 we get:
+  I-BUS: The processor(M4) fetches instruction from flash over IBus, that 
+	 means MCU manufacturer(STM) makes sure that the flash is actually 
+	 connected to the I-BUS 
+  D-BUS: Data is fetched over Dbus (ro-data from flash)
+  S-BUS: system bus
+
+(ref.TRM_M4 ull find bus interfaces in that , Icode,Dcode,system bus)
+*in flash memory we have instuctions,ro-data,and vector table
