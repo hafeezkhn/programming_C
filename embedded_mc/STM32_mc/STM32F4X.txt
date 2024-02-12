@@ -1,7 +1,7 @@
 ---STM32F4X------------------------------------------------------------
-Memory map of MCU(microcontroller unit)
+[Memory map of MCU(microcontroller unit)]
 - uses ARM cortex M4,which has system bus width 32bits
-- the processor can produce $G different addr 
+- the processor can produce 4G different addr 
 - So,memory map starts from 0x0000_0000 and ends 0xffff_ffff
 - looking at reference manual for STM32 finding section on memory map
 	*what is: 
@@ -10,9 +10,9 @@ Memory map of MCU(microcontroller unit)
 	 3.base addr of APB1 peripheral registers?
 	 4.base addr of FLASH memory?
 	 5.base addr of SRAM2?
-	 6.base addr of ADC and RCC register?
+	 6.base addr of ADC and RCC(reset and clock control) register?
 
-MCU Bus interfaces .i.e. from cortex M4 we get:
+[MCU Bus interfaces] .i.e. from cortex M4 we get:
   I-BUS: The processor(M4) fetches instruction from flash over IBus, that 
 	 means MCU manufacturer(STM) makes sure that the flash is actually 
 	 connected to the I-BUS 
@@ -21,3 +21,25 @@ MCU Bus interfaces .i.e. from cortex M4 we get:
 
 (ref.TRM_M4 ull find bus interfaces in that , Icode,Dcode,system bus)
 *in flash memory we have instuctions,ro-data,and vector table
+
+[BUS MATRIX]
+-Multi AHB bus matrix,we have multiple AHB busses on the slave side
+-defines path to communicate from Master to slave  
+-in MC the communication b/n processor to peripheral is seen from the scope of 
+ master to the slave
+-microcontroller Cortex M4 is master and it may have other master like,
+ Ethernet,High speed USB2.0,DMA1,DMA2
+-w.k.t processor M4 has 3 busses(I-Bus,D-bus,S-bus) to communicate with slave
+ i.e. D-Bus to communicate to SRAM1(112kb),SRAM2(16kb),FSMC(external mem controller)
+ and DBUS can also talk to the FLASH(1M) to fetch data,
+-similarly IBUS talks to two different slaves FSMC and Flash
+-And SBUS can talk to AHB1,AHB2,SRAM1,SRAM2,FSMC but it cannot talk to Flash.
+
+[CLOCKS]
+-various digital componets need clock for sync with MC
+-for diff Applications different clock configuration is required for eg,
+ if your application targets low power domain, then you may have to be careful with the
+ frequency of clock which you are using in your application,bcz there is relation 
+ b/n power consumption and the frequency of the clock.
+-clocking system of MC 
+
