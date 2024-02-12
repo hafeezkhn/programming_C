@@ -35,11 +35,52 @@
 -similarly IBUS talks to two different slaves FSMC and Flash
 -And SBUS can talk to AHB1,AHB2,SRAM1,SRAM2,FSMC but it cannot talk to Flash.
 
+*Both Advanced Peripheral Bus (APB) and Advanced High-performance Bus (AHB) are part of 
+ Advanced Microcontroller Bus Architecture (AMBA) which is a set of interconnect specifications from ARM
+ that sets protocols for effective on-chip communication between IPs and thereby ensuring high-performance SOC Design.
+
+	                    High performence     high-bandwidth     |B|
+			    Arm processor         on chip ram       |R|      UART   TIMER
+                                 |          AHB        |            |I| APB    |      |
+HiGH bandwidth memory interface-------------------------------------|D|----------------
+  					     |                      |G|        |
+                                          DMA BUS                   |E|       PIO
+					  Master
+
+*APB:- It is used to interface to any peripherals which are "low bandwidth" and do not require the 
+ high performance of a pipelined bus interface. It is a simple "non-pipelined protocol" 
+ that can be used to read or write from a bridge or master to a number of slaves through the "shared bus. 
+ The reads and writes share the same set of signals. It does not support burst transfers.
+*AHB:- It is used for High-Frequency Design and it supports "multiple Bus Master", "Burst transfer", 
+ and pipelined operations. Common AHB Slaves are internal memory devices, external memory interface
+ ,"high bandwidth peripherals". Some of the key features include Wide Data Bus Transfer, 
+ Single Clock Edge Operation, Burst Transfer, Pipelined Transfer,non-tristate implementation.
+
+
 [CLOCKS]
 -various digital componets need clock for sync with MC
 -for diff Applications different clock configuration is required for eg,
  if your application targets low power domain, then you may have to be careful with the
  frequency of clock which you are using in your application,bcz there is relation 
  b/n power consumption and the frequency of the clock.
--clocking system of MC 
+  *clock_Sources from m4 ref maunal:
+   1.Crystal Oscillator(externally connected)(HSE (high speed external))
+   2.The RC Oscillator (internal) (HSI)16MHz
+   3.The PLL(Phase Locked Loop)(internal)
+  *above three are connected to multiplexer which drives SYSCLK(system clock)
+   from that sysclock we drive other clocks like cortex clock,APB clocks,DMA HCLK(AHB)(max168MHz),Ethernet PTP clock
+
+
+[VECTOR TABLE]
+-table of addresses or pointers.
+-addresses of exception handlers .(system exceptions + interrupts)
+-in section of interrupts and events in ref manual
+-IRQ number /position on NVIC
+-priority and can be settable or fixed
+-STM has EXTI engine(external inturrupt/event controller) hangs on APB bus(ref manual)
+-some periherals deliver their inturrupt to NVIC over EXTI line.
+-some peripherals deliver their inturrupt directly to NVIC
+-while serving inturrupt itll be in handler mode after that in thread mode.
+
+
 

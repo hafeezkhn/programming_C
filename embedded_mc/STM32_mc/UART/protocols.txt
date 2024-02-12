@@ -1,0 +1,51 @@
+__________________________________Protocols______________________________
+
+IO ports type:
+either sending bytes or reciving bytes from external device or peripheral or processor or controller for reading ,
+what ever operation the port  performing is interconnected to system bus,
+the processor uses the addr decoder of port register for programming the port functions or modes,reading ports status and for writing or reading bytes.
+ 
+port communications:
+[HALF Duplex]
+\\\\\\\|  -----direction of data at time 1--------> |///////
+station|  <-----------direction of data at time 2---|station
+///////|                                            |\\\\\\\
+
+
+[FULL Duplex]
+\\\\\\\|                                            |///////
+station|  <-----direction of data at all time-----> |station
+///////|                                            |\\\\\\\
+
+
+Synchronous communication:
+-when a byte(charecter) or a frame(a collection of bytes) in of the data is 
+ recived or transmitted at the constant time intervals with uniform phase differences 
+ its called a synchronous.
+-clock signal should alwas be present,
+
+\\\\\\\|      ---->direction of flow                  |///////
+sender |110111] [11111011|11110110]...[11110111] [1111|Receiver
+///////|        frame                            frame|\\\\\\\
+
+
+Asynchronous communication:
+-when a data byte or a collection of data bytes is recived or transmitted at variable time intervals.the communication mode is called Asynchronous.
+-there will be no clock signal
+-there will be pre-defined hand shaking(there will be agreement b/n transmitter and reciver)
+-for eg, for every frame start bit and stop bit is agreement
+
+        [1|11111011|0]
+[start bit|  DATA  | stop bit] 
+
+
+serial communication:at one particular time only one bit can be transferred on data bus one wire required and can be used for long distance.
+	*types of Serial ports:
+	 1.synchronous Serial Input
+	 2.synchronous Serial Output
+	 3.Asynchronous Serial UART input
+	 4.Asynchronous Serial UART output
+
+
+
+parallel communication:multiple bits can be transferred at particular time requires more wires short distance and expensive.

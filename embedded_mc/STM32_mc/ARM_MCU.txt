@@ -77,6 +77,8 @@
 -Optional single precision Floating Point Unit (FPU), IEEE 754-compliant
 -Optional 8 MPU regions with sub-regions and background region
 -Integrated bit-field processing instructions and bus-level bit banding
+
+
 ----------------------------------------------------------------------------------------------
 
 
