@@ -40,6 +40,22 @@
 -----------------------------------------------------------------------------------------------------------------------------------
 [STM32FX]
 
+-SPI block diagram (ref manual)
+-shift register upto 16bits,and we have control register sets for baudrate and SPI 
+-MOSI and MISO connected to shift register and shift reg connected to TX,RX  buffer which are inturn connected to Addr and data bus(APB)
+-if shift reg recives all the bits its move to RX buffer from that we can read the data through APB bus.
+-and whenever you want to transmit data you write to TX buffer,if SPI  shift reg is free its loaded with TX buffer and further sent to MOSI pin
+-there will be inturrupt for TX buffer empty we have to load the data, and there will be inturrupt when RX buffer is full 
 
+-SCK internally connected to Baudrate generator(control reg)
+-NSS slave select pin :
+	1.when a device is slave mode:
+	  the NSS works as a standard "chip seelect" input and lets the slave communicate with master
+	2.when a decice is master:
+	  the NSS can be used either as o/p or i/p.As an i/p it can prevent multi-master bus collition,and as o/p it 
+	  can drive a slave select signal of a single slave
+-2 types of slave mgmt
+  
+ 
 
 
