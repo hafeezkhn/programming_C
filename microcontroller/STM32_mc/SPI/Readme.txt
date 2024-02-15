@@ -40,7 +40,7 @@
 -----------------------------------------------------------------------------------------------------------------------------------
 [STM32FX]
 
--SPI block diagram (ref manual)
+SPI block diagram (ref manual):
 -shift register upto 16bits,and we have control register sets for baudrate and SPI 
 -MOSI and MISO connected to shift register and shift reg connected to TX,RX  buffer which are inturn connected to Addr and data bus(APB)
 -if shift reg recives all the bits its move to RX buffer from that we can read the data through APB bus.
@@ -54,8 +54,19 @@
 	2.when a decice is master:
 	  the NSS can be used either as o/p or i/p.As an i/p it can prevent multi-master bus collition,and as o/p it 
 	  can drive a slave select signal of a single slave
--2 types of slave mgmt
+-Two types of slave mgmt (scenario of single master single slave)
+   software NSS mgmt -> without using pin,if ssm=1 ssi=0 NSS pin will be grounded internally (slave side)
+   h/w mgmt-> actually using pin
   
+SPI Communication Format:
+  based on clock polarity and phase
+  1. SCLK phase(CPHA) {serial clock Phase}
+  2. SClK Polarity(CPOL)
+  3. Data frame format
+
+What is max SCLK speed of SPIx peripheral,for that we need to know speed of APBx bus on which spi is connected(8MHz)
+
+
  
 
 
