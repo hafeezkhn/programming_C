@@ -1,0 +1,42 @@
+-------------------	FILE_MANAGEMENT      -----------------------------------------------
+
+POSIX -> (Portable Operating System Interface)IEEE defined standards Enables software 
+portability across operating systems,it defines both system and user-level APIs
+glibc -> impliments APIs on GNU/Unix based OS
+file -> is data container
+file system -> file resides in a filesystem( way of organising the data), fs will be hosted on memory(disk,ram,etc..)
+	#partitioning:[[MBR],[PartitionTable],[DiskPartition]]
+						     /
+			[[BootBlock],[SuperBlock],(InodeBlock),(DataBlocks)]
+	#each partition may be raw,or host some file system
+
+
+Note:check, MBR (Dos partition),GPT partition(Uparted),powerfailure fs,ext4 vs fat,diff partition can have its own fs.
+
+(CMD) cat /proc/filesystems
+
+#connect raw pendrive to create diff filesystem on it
+(CMD) sudo dmesg
+(CMD) sudo mkfs.ext4 /dev/sdb
+(CMD) sudo mount /dev/sdb test1 #test1 is directory to mount
+(CMD) sudo umount temp1
+(CMD) sudo mkfs.vfat /dev/sdb #vfat metadata is created aswell
+(CMD) sudo xxd /dev/sdb | less #thats how fat system looks like
+
+#partition table
+(CMD) fdisk
+(CMD) gparted
+#virtual disk
+(CMD) dd if=/dev/zero of=test.img bs=1M count=200
+(CMD) fdisk test.img # commands -> 'n','p''1'''
+(CMD) cd /tmp/;ls;mkdir test
+(CMD) mkfs.vfat --offset 4 test.img
+(CMD) fdisk test.img #print
+(CMD) sudo mount -o loop ,offset=2848 test.img /tmp/test/ 
+(CMD) xxd test.img|less
+(CMD) mkfs.vfat test.img
+(CMD) xxd test.img|less
+
+
+
+
