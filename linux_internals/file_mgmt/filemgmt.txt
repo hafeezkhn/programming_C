@@ -9,7 +9,10 @@ file system -> file resides in a filesystem( way of organising the data), fs wil
 						     /
 			[[BootBlock],[SuperBlock],(InodeBlock),(DataBlocks)]
 	#each partition may be raw,or host some file system
-
+	
+	*Bootblock:reside on first sector(begenning of fs), bootstarp only 512bytes(wasteing onesector) 
+	*superblock:it contains complete info about fs,tells free space ,about datablock
+	*inode list: directory entry or file , it provide name,permission,acess.if its link it will provide first link of data blockl
 
 Note:check, MBR (Dos partition),GPT partition(Uparted),powerfailure fs,ext4 vs fat,diff partition can have its own fs.
 
@@ -36,6 +39,16 @@ Note:check, MBR (Dos partition),GPT partition(Uparted),powerfailure fs,ext4 vs f
 (CMD) xxd test.img|less
 (CMD) mkfs.vfat test.img
 (CMD) xxd test.img|less
+(CMD) fdixk test.img
+
+#forensic
+(CMD) sudo mount test.img /tmp/test
+(CMD) cd /temp/test/
+(CMD) touch test1.txt test2.txt #type anything
+(CMD) sudo umount test
+(CMD) xxd test.img |less #scroll down for data 
+(CMD) mkfs.vfat test.img #again look disk->xxd 
+
 
 
 
