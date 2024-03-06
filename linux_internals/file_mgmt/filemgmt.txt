@@ -3,6 +3,7 @@
 POSIX -> (Portable Operating System Interface)IEEE defined standards Enables software 
 portability across operating systems,it defines both system and user-level APIs
 glibc -> impliments APIs on GNU/Unix based OS
+
 file -> is data container
 file system -> file resides in a filesystem( way of organising the data), fs will be hosted on memory(disk,ram,etc..)
 	#partitioning:[[MBR],[PartitionTable],[DiskPartition]]
@@ -13,6 +14,26 @@ file system -> file resides in a filesystem( way of organising the data), fs wil
 	*Bootblock:reside on first sector(begenning of fs), bootstarp only 512bytes(wasteing onesector) 
 	*superblock:it contains complete info about fs,tells free space ,about datablock
 	*inode list: directory entry or file , it provide name,permission,acess.if its link it will provide first link of data blockl
+
+		task1		task2		...	taskn		[user space]
+         ----------------------------------------------------------------------
+		 | 		  |                       |             [kernel space]
+	      [---------------virtual file system(VFS)-------------------]
+		|	|	|			|		
+	     [minix]  [ext2]  [msdos]                 [proc]
+		|	|	|
+	     [----Buffer chche----]
+		|		|
+	      [DD for HDD]    [DD for floppy]                           software
+	 ---------|-------------------------------------------------------------
+	       [Hard disk]						hardware
+	
+	*VFS: gives uniform view of fs ,thats the reason you are not worried where fs resides,what type of fs it is
+	      you use normal call called open,read,write irrespective of file system.internally navigates to which fs to choose
+	*Buffer chache: (see 'top' command) used for performence reasons.some data is chached
+	
+
+
 
 Note:check, MBR (Dos partition),GPT partition(Uparted),powerfailure fs,ext4 vs fat,diff partition can have its own fs.
 
@@ -49,7 +70,9 @@ Note:check, MBR (Dos partition),GPT partition(Uparted),powerfailure fs,ext4 vs f
 (CMD) xxd test.img |less #scroll down for data 
 (CMD) mkfs.vfat test.img #again look disk->xxd 
 
+#to check memory usage (top command)
+(CMD) cat /proc/meminfo
+(CMD) memstat
 
-
-
+-----file ops
 
