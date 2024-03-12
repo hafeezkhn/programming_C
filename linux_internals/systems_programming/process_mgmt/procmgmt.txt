@@ -1,0 +1,22 @@
+-----------PROC MGMT------------------------------------------
+-Running program is process
+-In kernel space everything is task
+-but in user space there is seperation called process and thread
+-each process will have one main thread started with it
+
+
+---pid same as task-----
+(CMD) cd /proc/5023/task
+(CMD) ls
+
+---for thread----------
+(CMD) cd /proc/5023/task
+(CMD) ls    #here threads are there
+(CMD) htop
+
+
+------exec-------------
+(CMD)  strace ./a.out
+(CMD)  ps -ax  
+(CMD)  cat /proc/18620/fd (not changed opend program)
+(CMD)  cat /proc/18620/maps (it will change)
