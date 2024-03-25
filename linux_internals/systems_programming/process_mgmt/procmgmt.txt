@@ -20,3 +20,5 @@
 (CMD)  ps -ax  
 (CMD)  cat /proc/18620/fd (not changed opend program)
 (CMD)  cat /proc/18620/maps (it will change)
+
+
