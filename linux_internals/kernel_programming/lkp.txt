@@ -1,0 +1,11 @@
+-----------linux kernel-------------
+(CMD) mknod test1 b 100 100 # here test1 is filename , 
+      b is blockdevice can use c for char device and major and minor number specified
+[search] devtmpfs
+(CMD) cat \proc\filesystems #u find nodev ie,not associated with device "devtmpfs"
+(CMD) cat \proc\dev
+(CMD) ls -l \sbin\init
+(CMD) cat \etc\inittab
+(CMD) \sbin\init --help
+
+
