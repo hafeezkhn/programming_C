@@ -8,4 +8,8 @@
 (CMD) cat \etc\inittab
 (CMD) \sbin\init --help
 
-
+(CMD) man systemctl
+(CMD) man systemd
+(CMD) man systemd.unit
+(CMD) cd /sys/fs/cgroup/
+(CMD) sudo dbus-monitor --system 
