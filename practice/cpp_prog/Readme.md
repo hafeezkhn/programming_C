@@ -1,5 +1,5 @@
 ﻿<h1>C plus plus</h1>
-![CPP](/practice/cpp_prog/images/CPP.jpg)
+![CPP](images/CPP.jpg)
 C++ is multi paradigm programming language that support **lightweight abstractions**
 
 <h2>Paradigms supported by C++</h2>
