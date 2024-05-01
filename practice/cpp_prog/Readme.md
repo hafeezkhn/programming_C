@@ -1,13 +1,16 @@
-﻿C plus plus
-
+﻿<h1>C plus plus</h1>
+![CPP](/images/CPP.png)
 C++ is multi paradigm programming language that support **lightweight abstractions**
 
-àParadigms supported by C++
+<h2>Paradigms supported by C++</h2>
 
-1. Procedural
-1. Object oriented
-1. Generic programming
+<ol>
+<li>Procedural</li>
+<li>Object oriented</li>
+<li>Generic programming</li>
+</ol>
 
+<p>
 - Runtime efficiency important in c.
 - Zero overhead principle.
   - Classes with constructors & destructors, inheritance, generic programming, functional programming techniques (lambda), etc...
@@ -18,7 +21,7 @@ C++ is multi paradigm programming language that support **lightweight abstractio
 - Object code reuse/ Compatibility with C.
   - Storage layout of struct is compatible with C, libraries, system-calls can be encapsulated
 - Generic programming **generalizes** software components so that can be easily **reused** in many situations.
-
+</p>
 
 
 
