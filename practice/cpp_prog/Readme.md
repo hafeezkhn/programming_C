@@ -4,14 +4,14 @@
 C++ is multi paradigm programming language that support **lightweight abstractions**
 
 <h2>Paradigms supported by C++</h2>
-
+<p>
 <ol>
 <li>Procedural</li>
 <li>Object oriented</li>
 <li>Generic programming</li>
 </ol>
+</p>
 
-<p>
 - Runtime efficiency important in c.
 - Zero overhead principle.
   - Classes with constructors & destructors, inheritance, generic programming, functional programming techniques (lambda), etc...
@@ -22,7 +22,7 @@ C++ is multi paradigm programming language that support **lightweight abstractio
 - Object code reuse/ Compatibility with C.
   - Storage layout of struct is compatible with C, libraries, system-calls can be encapsulated
 - Generic programming **generalizes** software components so that can be easily **reused** in many situations.
-</p>
+
 
 
 
