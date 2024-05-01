@@ -1,5 +1,5 @@
 ﻿<h1>C plus plus</h1>
-![CPP imgi](images/CPP.png)
+![img](CPP.png)
 <br></br>
 C++ is multi paradigm programming language that support **lightweight abstractions**
 
