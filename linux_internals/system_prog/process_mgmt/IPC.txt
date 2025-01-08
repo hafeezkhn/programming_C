@@ -1,0 +1,74 @@
+-------IPC---------------
+-based on restiction drawn process cannot access other process ,ie, we cannot interact with any process directly
+-in linux there are some methods
+  *shared memory
+  *mapped memory  
+  *pipe(named or unnamed)
+  *Sockets(Remote,local)
+  *message queue
+------------------------------------------------------------------------------------------------------------------
+[DATA PASSING MECHANISMS]
+--------------------------
+[pipes]
+- unidirection 
+- pipes are blocking
+- it holds two fds
+- pipes only visible to parent proc  and child proc interaction(we need to fork)
+
+
+[named pipes]
+-name associated with pipe
+- bidirectional
+
+(CMD) mkfifo file1
+(CMD) cat file1 #open new tab
+(CMD) echo hi > file1
+
+
+[message queue]
+(CMD) ipcs
+(CMD) ipcrm #remove recources
+- int msgget(key_t key,int msgflag);#returns message queue ID on success and -1 on error
+  it creates queue , if already there ull getid
+- int msgsnd(int msgid,const void * msgp,size_t msgsz,int msgflg); # msgp is pointer to struct which your going to send.
+  msgsz is size of payload (mtext member of struct)
+  message which we send shold be a struct containg two members: m_type and m_text
+- int msgrcv(int msqid,const void *msgp,size_t msgsz,long msgtyp,int msgflg);
+ 
+(CMD) cat /proc/sys/kernel/msgmax
+
+[POSIX Message queue]
+
+
+
+[Shared memeory]
+-Fast local  communication
+-allows two or more process to access the same memory
+-they might get mapped virtually different addr spaces but on physical memory both the process  mapped to same physical memory
+-shmget
+-attach(shmat)
+-detach
+-ipcrm
+
+(CMD) ipcs 
+---------------------------------------------------------------------------------------------------------------------
+[SYNCRONISATION MECHANISM]
+--------------------------
+[semaphore]: counter incremented /decremented based on recourse availability
+-eg; you have 4 counter , the 5th process will be sent to sleep/wait until counter decrements to 3 
+-there is two state that is POST state and wait state
+
+-create ->semget()
+-initialize ->shmctl()
+-semephore set to POST or WAIT -> semop()
+-remove -> shmctl()
+
+---------------------------------------------------------------------------------------------------------------------
+[MESSAGE PASSING MECHANISM]
+--------------------------
+[SIGNALS]
+-software inturrupt
+-asyncronous 
+
+
+
