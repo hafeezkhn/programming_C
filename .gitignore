@@ -1,0 +1,3 @@
+#Ignore all files in directories
+embedded_linux/beaglebone/ldd/source/linux-6.1.83-ti-r38/
+embedded_linux/beaglebone/ldd/downloads/bone-debian-9.9-iot-armhf-2019-08-03-4gb.img

@@ -1,0 +1,1 @@
+cmd_/home/vm/lab/programming_C/embedded_linux/beaglebone/ldd/custom_drivers/001hello_world/main.mod := printf '%s\n'   main.o | awk '!x[$$0]++ { print("/home/vm/lab/programming_C/embedded_linux/beaglebone/ldd/custom_drivers/001hello_world/"$$0) }' > /home/vm/lab/programming_C/embedded_linux/beaglebone/ldd/custom_drivers/001hello_world/main.mod
